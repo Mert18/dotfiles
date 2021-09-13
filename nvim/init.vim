@@ -29,19 +29,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-pairs', 'coc-snippets']
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'alvan/vim-closetag'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'tjdevries/colorbuddy.vim'
-Plug 'bkegley/gloombuddy'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'sainnhe/everforest'
 Plug 'tribela/vim-transparent'
-Plug 'rakr/vim-one'
-Plug 'glepnir/oceanic-material'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/barbar.nvim'
@@ -56,7 +52,7 @@ if(has("termguicolors"))
   set termguicolors
 endif
 syntax enable
-colorscheme tokyonight 
+colorscheme everforest 
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
