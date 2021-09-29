@@ -21,6 +21,26 @@ highlight link htmlEndTag htmlTagName
 let g:plug_home = stdpath("data") . "/plugged"
 
 call plug#begin(plug_home)
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bryanmylee/vim-colorscheme-icons'
+Plug 'mhinz/vim-startify'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-journal'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'nightsense/forgotten'
+Plug 'zaki/zazen'
+Plug 'nightsense/nemo'
+Plug 'yuttie/hydrangea-vim'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+Plug 'rhysd/vim-color-spring-night'
+Plug 'mhinz/vim-signify'
+Plug 'Yggdroot/indentLine'
+Plug 'chrisbra/Colorizer'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-node'
@@ -50,19 +70,20 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/barbar.nvim'
 call plug#end()
 
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
+function! TransparentBackground()
+    highlight Normal guibg=NONE ctermbg=NONE
+    highlight LineNr guibg=NONE ctermbg=NONE
+    set fillchars+=vert:\│
+    highlight VertSplit gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
+endfunction
 
-set encoding=UTF-8
-set guifont=DroidSansMono\ Nerd\ Font\ 11
-if(has("termguicolors"))
-  set termguicolors
-endif
-syntax enable
-colorscheme gruvbox
-set background=dark
 
-" filenames like *.xml, *.html, *.xhtml, ...
+" Main Coloring Configurations
+syntax on
+color gruvbox 
+
+" Enable True Color Support (ensure you're using a 256-color enabled $TERM, e.g. xterm-256color)
+set termguicolors
 " These are the file extensions where this plugin is enabled.
 "
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
