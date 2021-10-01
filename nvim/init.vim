@@ -1,4 +1,10 @@
 set scrolloff=3
+set hidden
+set clipboard=unnamedplus
+set noerrorbells
+set nowrap
+set incsearch
+set scrolloff=6
 set tabstop=2
 set shiftwidth=2
 set number
@@ -7,6 +13,8 @@ set expandtab
 set autowrite
 set autoindent
 set mouse+=a
+
+autocmd VimEnter * set autoindent
 
 set rtp +=~/.config/nvim
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -30,52 +38,29 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-journal'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'nightsense/forgotten'
-Plug 'zaki/zazen'
-Plug 'nightsense/nemo'
-Plug 'yuttie/hydrangea-vim'
-Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-Plug 'rhysd/vim-color-spring-night'
 Plug 'mhinz/vim-signify'
-Plug 'Yggdroot/indentLine'
 Plug 'chrisbra/Colorizer'
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-node'
+Plug 'gruvbox-community/gruvbox'
 Plug 'preservim/nerdtree'
+Plug 'tribela/vim-transparent'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-pairs', 'coc-snippets']
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'tpope/vim-commentary'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'alvan/vim-closetag'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-Plug 'ryanoasis/vim-devicons'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'sbdchd/neoformat'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
-Plug 'sainnhe/everforest'
-Plug 'tribela/vim-transparent'
-Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/barbar.nvim'
 call plug#end()
-
-function! TransparentBackground()
-    highlight Normal guibg=NONE ctermbg=NONE
-    highlight LineNr guibg=NONE ctermbg=NONE
-    set fillchars+=vert:\│
-    highlight VertSplit gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
-endfunction
 
 
 " Main Coloring Configurations
