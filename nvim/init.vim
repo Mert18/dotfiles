@@ -1,8 +1,7 @@
-set scrolloff=3
+set scrolloff=4
 set hidden
 set clipboard=unnamedplus
 set noerrorbells
-set nowrap
 set incsearch
 set scrolloff=6
 set tabstop=2
@@ -15,6 +14,7 @@ set autoindent
 set mouse+=a
 
 autocmd VimEnter * set autoindent
+filetype plugin indent on
 
 set rtp +=~/.config/nvim
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -29,9 +29,9 @@ highlight link htmlEndTag htmlTagName
 let g:plug_home = stdpath("data") . "/plugged"
 
 call plug#begin(plug_home)
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-syntastic/syntastic'
 Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
@@ -40,15 +40,15 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-journal'
 Plug 'mhinz/vim-signify'
 Plug 'chrisbra/Colorizer'
+Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'moll/vim-node'
-Plug 'gruvbox-community/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'tribela/vim-transparent'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'html'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-pairs', 'coc-snippets']
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
@@ -58,10 +58,26 @@ Plug 'tpope/vim-surround'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/barbar.nvim'
 call plug#end()
 
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-pairs', 'coc-snippets']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+function! EnhanceCppSyntax()
+  syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
+  hi def link cppFuncDef Special
+endfunction
+
+autocmd Syntax cpp call EnhanceCppSyntax()
+
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Main Coloring Configurations
 syntax on
@@ -139,3 +155,5 @@ nnoremap <silent> <leader>, :BufferPrevious<CR>
 nnoremap <silent> <leader>. :BufferNext<CR>
 nnoremap <silent>    <A-p> :BufferPin<CR>
 nnoremap <silent> <leader>/ :BufferClose<CR>
+nnoremap <M-J> /\v^(\w+\s+)?\w+::\w+\(.*\)
+nnoremap <M-K> ?\v^(\w+\s+)?\w+::\w+\(.*\)
