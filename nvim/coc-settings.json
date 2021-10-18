@@ -4,13 +4,15 @@
   "diagnostic.infoSign": "⚑",
   "diagnostic.hintSign": "⚑",
   "coc.preferences.formatOnSaveFiletypes": [
-    "typescript",
-    "css",
-    "Markdown",
     "javascript",
-    "javascriptreact",
+    "typescript",
     "typescriptreact",
-    "json"
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "css",
+    "html",
+    "cpp"
   ],
   "suggest.noselect": false,
   "diagnostic.checkCurrentLine": true

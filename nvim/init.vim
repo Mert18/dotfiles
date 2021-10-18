@@ -13,9 +13,6 @@ set autowrite
 set autoindent
 set mouse+=a
 
-autocmd VimEnter * set autoindent
-filetype plugin indent on
-
 set rtp +=~/.config/nvim
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -31,34 +28,30 @@ let g:plug_home = stdpath("data") . "/plugged"
 call plug#begin(plug_home)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
 Plug 'bryanmylee/vim-colorscheme-icons'
-Plug 'mhinz/vim-startify'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/seoul256.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/vim-journal'
+Plug 'vim-syntastic/syntastic'
 Plug 'mhinz/vim-signify'
 Plug 'chrisbra/Colorizer'
 Plug 'gruvbox-community/gruvbox'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'tribela/vim-transparent'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'html'] }
+  \ 'for': ['javascript', 'cpp', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'html'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-pairs', 'coc-snippets']
@@ -137,10 +130,7 @@ let g:NERDTreeStatusline = ''
 
 " Our remaps
 let mapleader = " "
-nnoremap <leader>pv :Vex<CR>
-nnoremap <C-p> :GFiles<CR>
-nnoremap <C-f> :Files<CR>
-nnoremap <leader>pf :Files<CR>
+nnoremap <C-p> <cmd>Telescope find_files<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -155,5 +145,3 @@ nnoremap <silent> <leader>, :BufferPrevious<CR>
 nnoremap <silent> <leader>. :BufferNext<CR>
 nnoremap <silent>    <A-p> :BufferPin<CR>
 nnoremap <silent> <leader>/ :BufferClose<CR>
-nnoremap <M-J> /\v^(\w+\s+)?\w+::\w+\(.*\)
-nnoremap <M-K> ?\v^(\w+\s+)?\w+::\w+\(.*\)
