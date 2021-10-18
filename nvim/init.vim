@@ -13,6 +13,7 @@ set autowrite
 set autoindent
 set mouse+=a
 
+set encoding=UTF-8
 set rtp +=~/.config/nvim
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -29,6 +30,7 @@ call plug#begin(plug_home)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bryanmylee/vim-colorscheme-icons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/vim-journal'
