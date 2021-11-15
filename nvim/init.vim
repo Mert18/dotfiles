@@ -13,7 +13,8 @@ set autowrite
 set autoindent
 set mouse+=a
 
-set encoding=UTF-8
+set t_Co=256
+
 set rtp +=~/.config/nvim
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -27,10 +28,11 @@ highlight link htmlEndTag htmlTagName
 let g:plug_home = stdpath("data") . "/plugged"
 
 call plug#begin(plug_home)
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'bryanmylee/vim-colorscheme-icons'
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/vim-journal'
@@ -42,13 +44,16 @@ Plug 'preservim/nerdtree'
 Plug 'tribela/vim-transparent'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'cpp', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'html'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'html'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -56,32 +61,14 @@ Plug 'romgrk/barbar.nvim'
 Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-pairs', 'coc-snippets']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-function! EnhanceCppSyntax()
-  syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
-  hi def link cppFuncDef Special
-endfunction
-
-autocmd Syntax cpp call EnhanceCppSyntax()
-
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Main Coloring Configurations
-syntax on
-color gruvbox 
-
-" Enable True Color Support (ensure you're using a 256-color enabled $TERM, e.g. xterm-256color)
+" Atelier_DuneDark
+" Atelier_EstuaryDark
+" Atelier_PlateauDark
+" Atelier_SavannaDark
+color Atelier_EstuaryDark 
 set termguicolors
-" These are the file extensions where this plugin is enabled.
-"
+
+
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 " filenames like *.xml, *.xhtml, ...
@@ -132,7 +119,8 @@ let g:NERDTreeStatusline = ''
 
 " Our remaps
 let mapleader = " "
-nnoremap <C-p> <cmd>Telescope find_files<CR>
+nnoremap <C-p> <cmd>Telescope git_files<CR>
+nnoremap <C-F> <cmd>Telescope find_files<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -147,3 +135,5 @@ nnoremap <silent> <leader>, :BufferPrevious<CR>
 nnoremap <silent> <leader>. :BufferNext<CR>
 nnoremap <silent>    <A-p> :BufferPin<CR>
 nnoremap <silent> <leader>/ :BufferClose<CR>
+nnoremap <C-S> :update<cr>
+
