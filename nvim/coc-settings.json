@@ -1,0 +1,14 @@
+{
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚑",
+  "diagnostic.infoSign": "⚑",
+  "diagnostic.hintSign": "⚑",
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "suggest.noselect": false,
+  "diagnostic.checkCurrentLine": true,
+  "html.enable": true,
+  "html.validate.scripts": true,
+  "html.format.enable": true,
+  "coc.preferences.colorSupport": true,
+  "cssmodules.camelCase": true
+}
