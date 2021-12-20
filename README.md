@@ -1,8 +1,4 @@
-# My Dot Files
-
-# Things to do in a new distro
-
-:cat:
+## Things to do in a new distro
 
 1. Download latest updates
 ```console
@@ -153,10 +149,7 @@ sudo apt install git-all
 git --version
 ```
 
-26. Install VSCode (someone else may want to code on your computer :))
-```console
-https://code.visualstudio.com/download
-```
+26. Set [Github SSH Key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 27. Install [PostgreSQL](https://www.postgresql.org/download/)
 
@@ -167,3 +160,7 @@ https://code.visualstudio.com/download
 30. Install [Postman](https://www.postman.com/)
 
 31. Install [MongoDB](https://www.mongodb.com/try/download/community)
+
+32. Install VSCode (someone else may want to code on your computer :))
+```console
+https://code.visualstudio.com/download
