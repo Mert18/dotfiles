@@ -160,5 +160,10 @@ https://code.visualstudio.com/download
 
 27. Install [PostgreSQL](https://www.postgresql.org/download/)
 
-28. Install [MongoDB](https://www.mongodb.com/try/download/community)
+28. Install [PGAdmin](https://www.pgadmin.org/download/pgadmin-4-apt/)
 
+29. Install [Discord](https://discord.com/)
+
+30. Install [Postman](https://www.postman.com/)
+
+31. Install [MongoDB](https://www.mongodb.com/try/download/community)
