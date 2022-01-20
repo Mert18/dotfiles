@@ -18,6 +18,9 @@ set expandtab
 set autowrite
 set autoindent
 set mouse+=a
+"set nowrap
+
+ set t_Co=256
 
 
 "---------------------------------------------------------------
@@ -38,6 +41,7 @@ source ~/.config/nvim/plugins/nightfox.vim
 source ~/.config/nvim/plugins/base16.vim
 source ~/.config/nvim/plugins/colorschemes.vim
 source ~/.config/nvim/plugins/telescope.vim
+source ~/.config/nvim/plugins/telescopenative.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/transparent.vim
 source ~/.config/nvim/plugins/prettier.vim
@@ -54,13 +58,30 @@ source ~/.config/nvim/plugins/plenary.vim
 source ~/.config/nvim/plugins/editorconfig.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/floaterm.vim
+source ~/.config/nvim/plugins/fugitive.vim
+source ~/.config/nvim/plugins/airline.vim
+source ~/.config/nvim/plugins/lspconfig.vim
+
+source ~/.config/nvim/plugins/gruvbox.vim
+source ~/.config/nvim/plugins/vscode.vim
+source ~/.config/nvim/plugins/kanagawa.vim
+source ~/.config/nvim/plugins/catppuccin.vim
 call plug#end()
 
-" Atelier_DuneDark
-" Atelier_EstuaryDark
-" Atelier_PlateauDark
-" Atelier_SavannaDark
-color nightfox 
+if has('termguicolors')
+  set termguicolors
+endif
+let g:vscode_transparency = 1
+" Enable italic comment
+let g:vscode_italic_comment = 1
+
+syntax enable
+let g:vscode_style = "dark"
+
+colorscheme vscode 
+
+hi Directory guifg=#a8d2eb guibg=NONE
+
 
 autocmd FileType scss setl iskeyword+=@-@
 
@@ -71,6 +92,19 @@ let NERDTreeMinimalUI=1
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+
+lua << EOF
+require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
+EOF
 
 "---------------------------------------------------------------
 " Keymaps 
@@ -96,3 +130,7 @@ nnoremap <silent> <leader>, :BufferPrevious<CR>
 nnoremap <silent> <leader>. :BufferNext<CR>
 nnoremap <silent> <leader>/ :BufferClose<CR>
 nnoremap <C-S> :update<cr>
+
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
+nmap <leader>gs :G<CR>
