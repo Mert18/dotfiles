@@ -63,27 +63,23 @@ source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/lspconfig.vim
 
 source ~/.config/nvim/plugins/gruvbox.vim
-source ~/.config/nvim/plugins/vscode.vim
-source ~/.config/nvim/plugins/kanagawa.vim
-source ~/.config/nvim/plugins/catppuccin.vim
 call plug#end()
 
 if has('termguicolors')
   set termguicolors
 endif
-let g:vscode_transparency = 1
-" Enable italic comment
-let g:vscode_italic_comment = 1
 
-syntax enable
-let g:vscode_style = "dark"
-
-colorscheme vscode 
+colorscheme gruvbox 
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.icons = v:false
 
 hi Directory guifg=#a8d2eb guibg=NONE
+hi BufferTabpageFill guibg=none
 
-
-autocmd FileType scss setl iskeyword+=@-@
+hi BufferCurrent guibg=none
+hi BufferInactive guibg=none 
+hi BufferInactiveSign guibg=none
+hi BufferCurrentSign guibg=none
 
 let g:javascript_plugin_jsdoc = 1
 
@@ -134,3 +130,5 @@ nnoremap <C-S> :update<cr>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
+
+
