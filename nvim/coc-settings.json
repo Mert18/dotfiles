@@ -6,9 +6,14 @@
   "coc.preferences.formatOnSaveFiletypes": ["*"],
   "suggest.noselect": false,
   "diagnostic.checkCurrentLine": true,
-  "html.enable": true,
-  "html.validate.scripts": true,
-  "html.format.enable": true,
-  "coc.preferences.colorSupport": true,
-  "cssmodules.camelCase": true
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.disableSuccessMessage": true,
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true
 }

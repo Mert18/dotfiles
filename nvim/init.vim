@@ -20,13 +20,13 @@ set autoindent
 set mouse+=a
 "set nowrap
 
- set t_Co=256
-
+set t_Co=256
+set encoding=UTF-8
 
 "---------------------------------------------------------------
 " Plugins 
 "---------------------------------------------------------------
-
+"
 set rtp +=~/.config/nvim
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -36,47 +36,43 @@ endif
 let g:plug_home = stdpath("data") . "/plugged"
 
 call plug#begin(plug_home)
-source ~/.config/nvim/plugins/jsonc.vim
-source ~/.config/nvim/plugins/nightfox.vim
-source ~/.config/nvim/plugins/base16.vim
-source ~/.config/nvim/plugins/colorschemes.vim
 source ~/.config/nvim/plugins/telescope.vim
-source ~/.config/nvim/plugins/telescopenative.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/transparent.vim
-source ~/.config/nvim/plugins/prettier.vim
-source ~/.config/nvim/plugins/treesitter.vim
-source ~/.config/nvim/plugins/auto-pairs.vim
 source ~/.config/nvim/plugins/devicons.vim
-source ~/.config/nvim/plugins/web-devicons.vim
+source ~/.config/nvim/plugins/webdevicons.vim
 source ~/.config/nvim/plugins/barbar.vim
-source ~/.config/nvim/plugins/javascript.vim
-source ~/.config/nvim/plugins/coc.vim
-source ~/.config/nvim/plugins/typescript.vim
-source ~/.config/nvim/plugins/jsx-pretty.vim
-source ~/.config/nvim/plugins/plenary.vim
-source ~/.config/nvim/plugins/editorconfig.vim
 source ~/.config/nvim/plugins/fzf.vim
-source ~/.config/nvim/plugins/floaterm.vim
-source ~/.config/nvim/plugins/fugitive.vim
-source ~/.config/nvim/plugins/airline.vim
-source ~/.config/nvim/plugins/lspconfig.vim
+
+source ~/.config/nvim/plugins/vimjsxpretty.vim
+source ~/.config/nvim/plugins/vimjsxtypescript.vim
+source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/vimairline.vim
+source ~/.config/nvim/plugins/delimiteMite.vim
+source ~/.config/nvim/plugins/commentary.vim
+" source ~/.config/nvim/plugins/floaterm.vim
 
 source ~/.config/nvim/plugins/gruvbox.vim
+source ~/.config/nvim/plugins/vscode.vim
 call plug#end()
+
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 
 if has('termguicolors')
   set termguicolors
 endif
 
 colorscheme gruvbox 
+
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.icons = v:false
 
 hi Directory guifg=#a8d2eb guibg=NONE
 hi BufferTabpageFill guibg=none
 
-hi BufferCurrent guibg=none
+hi BufferCurrent guifg=#E49C55 guibg=none
 hi BufferInactive guibg=none 
 hi BufferInactiveSign guibg=none
 hi BufferCurrentSign guibg=none
@@ -130,5 +126,3 @@ nnoremap <C-S> :update<cr>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
-
-
