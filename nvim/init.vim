@@ -16,7 +16,7 @@ set number
 set relativenumber
 set expandtab
 set autowrite
-set autoindent
+set smartindent
 set mouse+=a
 "set nowrap
 
@@ -50,6 +50,10 @@ source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/vimairline.vim
 source ~/.config/nvim/plugins/delimiteMite.vim
 source ~/.config/nvim/plugins/commentary.vim
+source ~/.config/nvim/plugins/tailwind.vim
+source ~/.config/nvim/plugins/brackerpaircolorizer.vim
+source ~/.config/nvim/plugins/vimcommentary.vim
+source ~/.config/nvim/plugins/styledcomponents.vim
 " source ~/.config/nvim/plugins/floaterm.vim
 
 source ~/.config/nvim/plugins/gruvbox.vim
@@ -126,3 +130,5 @@ nnoremap <C-S> :update<cr>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
+
+

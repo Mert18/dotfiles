@@ -1,1 +1,1 @@
-Plug 'pangloss/vim-javascript'
+Plug "pangloss/vim-javascript"
