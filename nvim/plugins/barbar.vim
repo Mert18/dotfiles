@@ -1,1 +1,0 @@
-Plug 'romgrk/barbar.nvim'

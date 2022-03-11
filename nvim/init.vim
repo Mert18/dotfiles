@@ -12,8 +12,6 @@ set scrolloff=6
 set sidescrolloff=6
 set tabstop=2
 set shiftwidth=2
-set number
-set relativenumber
 set expandtab
 set autowrite
 set smartindent
@@ -39,26 +37,19 @@ call plug#begin(plug_home)
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/transparent.vim
-source ~/.config/nvim/plugins/devicons.vim
-source ~/.config/nvim/plugins/webdevicons.vim
-source ~/.config/nvim/plugins/barbar.vim
 source ~/.config/nvim/plugins/fzf.vim
+source ~/.config/nvim/plugins/prettier.vim
 
-source ~/.config/nvim/plugins/vimjsxpretty.vim
-source ~/.config/nvim/plugins/vimjsxtypescript.vim
-source ~/.config/nvim/plugins/coc.vim
-source ~/.config/nvim/plugins/vimairline.vim
-source ~/.config/nvim/plugins/delimiteMite.vim
-source ~/.config/nvim/plugins/commentary.vim
-source ~/.config/nvim/plugins/tailwind.vim
-source ~/.config/nvim/plugins/brackerpaircolorizer.vim
 source ~/.config/nvim/plugins/vimcommentary.vim
 source ~/.config/nvim/plugins/styledcomponents.vim
-" source ~/.config/nvim/plugins/floaterm.vim
+source ~/.config/nvim/plugins/neovimlspconfig.vim
+source ~/.config/nvim/plugins/delimitmate.vim
 
 source ~/.config/nvim/plugins/gruvbox.vim
-source ~/.config/nvim/plugins/vscode.vim
 call plug#end()
+
+
+source ~/.config/nvim/lspservers.vim
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
@@ -68,10 +59,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
-colorscheme gruvbox 
-
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.icons = v:false
+colorscheme gruvbox-material
 
 hi Directory guifg=#a8d2eb guibg=NONE
 hi BufferTabpageFill guibg=none
@@ -130,5 +118,4 @@ nnoremap <C-S> :update<cr>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
-
 
