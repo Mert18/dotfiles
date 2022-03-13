@@ -14,7 +14,7 @@ sudo apt-get install gnome-tweak-tool -y
 
 4. Install Restricted Extras and Software Properties Common
 ```console
-sudo apt-get install Ubuntu-restricted-extras
+sudo apt-get install ubuntu-restricted-extras
 sudo apt-get install software-properties-common
 ```
 
