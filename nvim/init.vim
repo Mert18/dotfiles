@@ -2,14 +2,13 @@
 " General Settings
 "---------------------------------------------------------------
 
-set termguicolors
-set scrolloff=4
 set hidden
 set clipboard=unnamedplus
 set noerrorbells
 set incsearch
-set scrolloff=6
-set sidescrolloff=6
+set scrolloff=3
+set sidescrolloff=3
+set noswapfile
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -44,9 +43,19 @@ source ~/.config/nvim/plugins/vimcommentary.vim
 source ~/.config/nvim/plugins/styledcomponents.vim
 source ~/.config/nvim/plugins/neovimlspconfig.vim
 source ~/.config/nvim/plugins/delimitmate.vim
+source ~/.config/nvim/plugins/floaterm.vim
+
+source ~/.config/nvim/plugins/typescript.vim
+source ~/.config/nvim/plugins/javascript.vim
+
 
 source ~/.config/nvim/plugins/gruvbox.vim
+
 call plug#end()
+
+let g:floaterm_keymap_new    = '<F1>'
+let g:floaterm_keymap_kill = '<F2>'
+let g:floaterm_keymap_next = '<F3>'
 
 
 source ~/.config/nvim/lspservers.vim
@@ -59,7 +68,10 @@ if has('termguicolors')
   set termguicolors
 endif
 
-colorscheme gruvbox-material
+colorscheme gruvbox-material 
+
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=#333333
 
 hi Directory guifg=#a8d2eb guibg=NONE
 hi BufferTabpageFill guibg=none
@@ -115,7 +127,9 @@ nnoremap <silent> <leader>. :BufferNext<CR>
 nnoremap <silent> <leader>/ :BufferClose<CR>
 nnoremap <C-S> :update<cr>
 
+nnoremap <leader>+ :vertical resize +5<CR>
+nnoremap <leader>- :vertical resize -5<CR>
+
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
-
