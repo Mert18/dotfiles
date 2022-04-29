@@ -7,7 +7,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 
 2. Install Gnome Tweak Tool
 ```console
-sudo apt-get install gnome-tweak-tool -y
+sudo apt-get install gnome-tweaks
 ```
 
 3. Install [Brave](https://brave.com) web browser
@@ -33,63 +33,50 @@ sudo apt install snapd
 7. Install Spotify
 ```console
 snap install spotify
-```
 
-8. Install TLP for battery life
-```console
-sudo apt-get install tlp tlp-rdw
-sudo systemctl enable tlp
-```
-
-9. To keep system clean, use these sometimes
+8. To keep system clean, use these sometimes
 ```console
 sudo apt-get autoclean
 sudo apt-get autoremove
 sudo apt-get clean
 ```
 
-10. Install VLC
+9. Install VLC
 ```console
 sudo snap install vlc
 ```
 
-11. Install GIMP for photo editing
+10. Install GIMP for photo editing
 ```console
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 sudo apt-get update
 sudo apt-get install gimp
 ```
 
-12. Setup keyboard shortcuts
+11. Setup keyboard shortcuts
 ```console
 Alt + w -> Launch Web Browser
 Super + T -> Launch Terminal
 Alt + s -> Launch Settings
 Alt + f -> Launch Home Folder
 Ctrl + 4 -> Close Window
-Ctrl + Alt + Delete -> Task Manager
+Ctrl + Alt + Delete -> Task Manager (gnome-system-monitor)
 ```
 
-13. Install Java
-```console
-sudo apt install default-jre
-sudo apt install default-jdk
-```
-
-14. Install Neovim
+12. Install Neovim
 ```console
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install neovim
 ```
 
-15. Configure Neovim
+13. Configure Neovim
 ```console
 move the nvim dot file to ~/.config/nvim
 do not forget to :PlugInstall
 ```
 
-16. Install Python
+15. Install Python
 ```console
 sudo apt update
 sudo apt install python
