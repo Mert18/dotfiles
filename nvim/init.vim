@@ -1,7 +1,6 @@
 "---------------------------------------------------------------
 " General Settings
 "---------------------------------------------------------------
-
 set hidden
 set clipboard=unnamedplus
 set noerrorbells
@@ -15,7 +14,7 @@ set expandtab
 set autowrite
 set smartindent
 set mouse+=a
-"set nowrap
+set cursorline
 
 set t_Co=256
 set encoding=UTF-8
@@ -33,44 +32,61 @@ endif
 let g:plug_home = stdpath("data") . "/plugged"
 
 call plug#begin(plug_home)
-source ~/.config/nvim/plugins/telescope.vim
-source ~/.config/nvim/plugins/nerdtree.vim
-source ~/.config/nvim/plugins/transparent.vim
-source ~/.config/nvim/plugins/fzf.vim
-source ~/.config/nvim/plugins/prettier.vim
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-source ~/.config/nvim/plugins/vimcommentary.vim
-source ~/.config/nvim/plugins/styledcomponents.vim
-source ~/.config/nvim/plugins/neovimlspconfig.vim
-source ~/.config/nvim/plugins/delimitmate.vim
-source ~/.config/nvim/plugins/floaterm.vim
+Plug 'preservim/nerdtree'
 
-source ~/.config/nvim/plugins/typescript.vim
-source ~/.config/nvim/plugins/javascript.vim
+Plug 'tribela/vim-transparent'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-source ~/.config/nvim/plugins/gruvbox.vim
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+
+Plug 'tpope/vim-commentary'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
+
+Plug 'Raimondi/delimitMate'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+
+Plug 'gruvbox-community/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
 
-let g:floaterm_keymap_new    = '<F1>'
-let g:floaterm_keymap_kill = '<F2>'
-let g:floaterm_keymap_next = '<F3>'
+source ~/.config/nvim/configs/neovimlsp.vim
+source ~/.config/nvim/configs/lspsaga.vim
+source ~/.config/nvim/configs/treesitter.vim
+source ~/.config/nvim/configs/fzf.vim
 
-
-source ~/.config/nvim/lspservers.vim
-
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 
 
 if has('termguicolors')
   set termguicolors
 endif
-
 colorscheme gruvbox-material 
 
-set cursorline
 hi CursorLine term=bold cterm=bold guibg=#333333
 
 hi Directory guifg=#a8d2eb guibg=NONE
@@ -81,13 +97,7 @@ hi BufferInactive guibg=none
 hi BufferInactiveSign guibg=none
 hi BufferCurrentSign guibg=none
 
-let g:javascript_plugin_jsdoc = 1
-
-" NerdTree minimal ui, better
 let NERDTreeMinimalUI=1
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 
 if ! has('gui_running')
     set ttimeoutlen=10
@@ -110,7 +120,8 @@ let mapleader = " "
 
 map gf :edit <cfile><cr>
 nnoremap <C-p> <cmd>Telescope git_files<CR>
-nnoremap <C-F> <cmd>Telescope find_files<CR>
+nnoremap <C-P> <cmd>Telescope git_files<CR>
+nnoremap <C-F> <cmd>:Ag<CR>
 
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
@@ -122,14 +133,18 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-u> 10k
 nnoremap <C-d> 10j
 
-nnoremap <silent> <leader>, :BufferPrevious<CR>
-nnoremap <silent> <leader>. :BufferNext<CR>
-nnoremap <silent> <leader>/ :BufferClose<CR>
 nnoremap <C-S> :update<cr>
-
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
 
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gu :diffget //2<CR>
-nmap <leader>gs :G<CR>
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
