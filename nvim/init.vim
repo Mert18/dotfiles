@@ -24,8 +24,6 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 
-set foldmethod=manual
-
 "---------------------------------------------------------------
 " Plugins 
 "---------------------------------------------------------------
@@ -81,17 +79,7 @@ autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 if has('termguicolors')
   set termguicolors
 endif
-colorscheme gruvbox
-
-hi CursorLine term=bold cterm=bold guibg=#333333
-
-hi Directory guifg=#a8d2eb guibg=NONE
-hi BufferTabpageFill guibg=none
-
-hi BufferCurrent guifg=#E49C55 guibg=none
-hi BufferInactive guibg=none 
-hi BufferInactiveSign guibg=none
-hi BufferCurrentSign guibg=none
+colorscheme gruvbox-material
 
 let NERDTreeMinimalUI=1
 
@@ -108,6 +96,9 @@ lua << EOF
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
 EOF
 
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 function! s:show_documentation()
   if CocAction('hasProvider', 'hover')
@@ -163,11 +154,9 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
-vmap <C-c> "+yi
+vmap <C-c> "+y
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
-nnoremap <space> za
