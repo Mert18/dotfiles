@@ -1,5 +1,0 @@
-{
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.messageTarget": "echo",
-  "coc.preferences.snippets.enable": true
-}

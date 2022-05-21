@@ -17,6 +17,7 @@ lua <<EOF
         "css",
         "html",
         "javascript",
+        "typescript"
       }
     }
 EOF

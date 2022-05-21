@@ -1,9 +1,11 @@
 "---------------------------------------------------------------
 " General Settings
 "---------------------------------------------------------------
+set hidden
+set clipboard=unnamedplus
 set noerrorbells
 set incsearch
-set scrolloff=4
+set scrolloff=3
 set sidescrolloff=3
 set noswapfile
 set tabstop=2
@@ -16,13 +18,6 @@ set cursorline
 
 set t_Co=256
 set encoding=UTF-8
-
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
 
 "---------------------------------------------------------------
 " Plugins 
@@ -49,14 +44,18 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'tpope/vim-commentary'
 
-Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+
 Plug 'Raimondi/delimitMate'
+
 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -68,6 +67,7 @@ Plug 'sainnhe/gruvbox-material'
 
 call plug#end()
 
+source ~/.config/nvim/configs/neovimlsp.vim
 source ~/.config/nvim/configs/treesitter.vim
 source ~/.config/nvim/configs/fzf.vim
 
@@ -79,7 +79,17 @@ autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 if has('termguicolors')
   set termguicolors
 endif
-colorscheme gruvbox-material
+colorscheme gruvbox-material 
+
+hi CursorLine term=bold cterm=bold guibg=#333333
+
+hi Directory guifg=#a8d2eb guibg=NONE
+hi BufferTabpageFill guibg=none
+
+hi BufferCurrent guifg=#E49C55 guibg=none
+hi BufferInactive guibg=none 
+hi BufferInactiveSign guibg=none
+hi BufferCurrentSign guibg=none
 
 let NERDTreeMinimalUI=1
 
@@ -96,22 +106,9 @@ lua << EOF
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
 EOF
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-function! s:show_documentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
 "---------------------------------------------------------------
 " Keymaps 
 "---------------------------------------------------------------
-
 
 let mapleader = " "
 
@@ -134,29 +131,14 @@ nnoremap <C-S> :update<cr>
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-nmap <leader>ca  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-nmap <leader>cl  <Plug>(coc-codelens-action)
-
-vmap <C-c> "+y
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
