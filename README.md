@@ -9,7 +9,14 @@ Alt + s -> Launch Settings
 Super + T -> Launch Terminal
 Ctrl + 4 -> Close Window
 Ctrl + Alt + Delete -> Task Manager (gnome-system-monitor)
-Ctrl + Super + Left -> Carry window to left workspace etc.
+Ctrl + Super + Left -> Move window one monitor left
+Ctrl + Super + Right -> Move window one monitor right
+Ctrl + Alt + Left -> Move to workspace on the left
+Ctrl + Alt + Right -> Move to workspace on the right
+Shift + Super + Left -> Move window to workspace on the left
+Shift + Super + Right -> Move window to workspace on the right
+
+
 ```
 
 Spotify Previous song command
