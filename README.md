@@ -15,8 +15,11 @@ Ctrl + Alt + Left -> Move to workspace on the left
 Ctrl + Alt + Right -> Move to workspace on the right
 Shift + Super + Left -> Move window to workspace on the left
 Shift + Super + Right -> Move window to workspace on the right
+```
 
-
+Disable Ubuntu dock
+```bash
+gnome-extensions disable ubuntu-dock@ubuntu.com
 ```
 
 Spotify Previous song command
