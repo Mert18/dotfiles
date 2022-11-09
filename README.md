@@ -33,3 +33,6 @@ dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPl
 ```
 Font - FiraCode, JetBrains
 https://www.nerdfonts.com/font-downloads
+
+ZSH THEME -> https://github.com/ChesterYue/ohmyzsh-theme-passion
+Download it at put it under ` ~/.oh-my-zsh/themes `
