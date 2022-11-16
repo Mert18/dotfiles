@@ -26,6 +26,10 @@ Spotify Previous song command
 ```bash
 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 ```
+Spotify Start/Stop song command
+```bash
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+```
 
 Spotify Next song command
 ```bash
