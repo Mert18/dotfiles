@@ -93,3 +93,8 @@ and make it default terminal
 gsettings set org.gnome.desktop.default-applications.terminal exec /usr/local/bin/alacritty
 gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 ```
+
+13. Install tmux
+```
+sudo apt-get install tmux
+```
