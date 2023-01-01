@@ -8,11 +8,15 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="passion"
+ZSH_THEME="headline"
 
 alias k="kubectl"
 alias wk="watch kubectl"
 
+export FLYCTL_INSTALL="/home/mert/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+export KUBE_EDITOR=gedit
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -73,7 +77,7 @@ alias wk="watch kubectl"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git history sudo)
 
 source $ZSH/oh-my-zsh.sh
 
