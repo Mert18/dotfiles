@@ -44,6 +44,13 @@ https://www.nerdfonts.com/font-downloads
 sudo apt-get install curl
 ```
 
+5.5 Install Git
+```
+sudo apt install git
+git config --global user.name "username"
+git config --global user.email gmail@gmail.com
+```
+
 6. ZSH & Theme
 ```
 sudo apt-get install zsh
@@ -56,7 +63,8 @@ Download it at put it under ` ~/.oh-my-zsh/themes `
 
 7. Install node
 ```
-curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - && sudo apt-get install -y nodejs
+curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
 ```
 
 8. Install Postman
