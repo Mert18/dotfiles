@@ -8,13 +8,10 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="headline"
+ZSH_THEME="passion"
 
 alias k="kubectl"
 alias wk="watch kubectl"
-
-export FLYCTL_INSTALL="/home/mert/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 export KUBE_EDITOR=gedit
 # Set list of themes to pick from when loading at random
