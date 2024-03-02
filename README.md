@@ -41,13 +41,12 @@ https://www.nerdfonts.com/font-downloads
 5. Install curl
 ```
 sudo apt-get install curl
-sudo pacman -S curl
+yay curl
 ```
 
 5.5 Install Git
 ```
 sudo apt install git
-sudo pacman -S git
 
 git config --global user.name "username"
 git config --global user.email gmail@gmail.com
@@ -56,7 +55,7 @@ git config --global user.email gmail@gmail.com
 6. ZSH & Theme
 ```
 sudo apt-get install zsh
-sudo pacman -S zsh
+yay zsh
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -69,7 +68,7 @@ Download it at put it under ` ~/.oh-my-zsh/themes `
 curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 
-sudo pacman -S nodejs npm
+yay nodejs npm
 ```
 
 8. Install Postman
@@ -91,7 +90,7 @@ END
 9. Install Spotify
 ```
 sudo snap install spotify
-sudo pacman -S spotify-launcher
+yay spotify-launcher
 ```
 
 10. Install Discord
@@ -108,5 +107,5 @@ mkdir .local/bin
 13. Install tmux
 ```
 sudo apt-get install tmux
-sudo pacman -S tmux
+yay tmux
 ```
