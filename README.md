@@ -109,3 +109,8 @@ mkdir .local/bin
 sudo apt-get install tmux
 yay tmux
 ```
+
+14. Gnome, alt tab only show apps in the current workspace
+```
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
+```
