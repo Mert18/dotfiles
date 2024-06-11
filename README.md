@@ -1,7 +1,7 @@
 ## Things to do in a new distro
 
 
-1. Keyboard shortcuts
+- Keyboard shortcuts
 ```console
 Alt + w -> Launch Web Browser
 Alt + f -> Launch Folders 
@@ -14,13 +14,10 @@ Ctrl + Alt + Left -> Move window to workspace on the left
 Ctrl + Alt + Right -> Move window to workspace on the right
 ```
 
-// GNOME
-2. Disable Ubuntu Dock 
-```bash
-gnome-extensions disable ubuntu-dock@ubuntu.com
-```
+- Spotify Change Song
 
-3. Spotify Change Song
+<b>UBUNTU</b>
+
 Spotify Previous song command (ctrl + 4)
 ```bash
 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
@@ -34,17 +31,30 @@ Spotify Next song command (ctrl + 6)
 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 ```
 
-4. I like those fonts. I use Firacode in alacritty.
+<b>ENDEAVOUROS</b>
+```bash
+sudo pacman -S playerctl
+```
+```
+playerctl --player=spotify previous
+playerctl --player=spotify play-pause
+playerctl --player=spotify next
+```
+
+
+
+- I like those fonts. I use Firacode in alacritty.
 Font - FiraCode, JetBrains
 https://www.nerdfonts.com/font-downloads
+https://github.com/githubnext/monaspace
 
-5. Install curl
+- Install curl
 ```
 sudo apt-get install curl
 yay curl
 ```
 
-5.5 Install Git
+- Install Git
 ```
 sudo apt install git
 
@@ -52,7 +62,7 @@ git config --global user.name "username"
 git config --global user.email gmail@gmail.com
 ```
 
-6. ZSH & Theme
+- ZSH & Theme
 ```
 sudo apt-get install zsh
 yay zsh
@@ -63,7 +73,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ZSH THEME -> https://github.com/ChesterYue/ohmyzsh-theme-passion
 Download it at put it under ` ~/.oh-my-zsh/themes `
 
-7. Install node
+- Install node
 ```
 curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
@@ -71,7 +81,7 @@ sudo apt-get install -y nodejs
 yay nodejs npm
 ```
 
-8. Install Postman
+- Install Postman
 ```
 tar -C /tmp/ -xzf <(curl -L https://dl.pstmn.io/download/latest/linux64) && sudo mv /tmp/Postman /opt/
 
@@ -87,18 +97,21 @@ Categories=Development;
 END
 ```
 
-9. Install Spotify
+- Install Spotify
 ```
 sudo snap install spotify
 yay spotify-launcher
 ```
 
-10. Install Discord
+- Install Discord
 
-11. Generate new SSH keys and add them to github & bitbucket
+- Generate new SSH keys and add them to github & bitbucket
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-12. Install Kitty 
+- Install Kitty
+
+<b>UBUNTU</b>
+
 ```
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 mkdir .local/bin
@@ -117,13 +130,19 @@ sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x2
 sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 ```
 
-13. Install tmux
+<b>ENDEAVOUROS</b>
+
+```
+yay kitty
+```
+
+- Install tmux
 ```
 sudo apt-get install tmux
 yay tmux
 ```
 
-14. Gnome, alt tab only show apps in the current workspace
+- Ubuntu, alt tab only show apps in the current workspace
 ```
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 ```
