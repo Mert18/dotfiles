@@ -45,10 +45,7 @@ sudo apt-get install zsh
 yay zsh
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 ```
-ZSH THEME -> https://github.com/ChesterYue/ohmyzsh-theme-passion
-Download it at put it under ` ~/.oh-my-zsh/themes `
 
 
 - Install Kitty
