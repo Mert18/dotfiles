@@ -50,4 +50,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 - Install Kitty
 - Install Tmux
+- Install Java, set to PATH
+- Install code editors
   
