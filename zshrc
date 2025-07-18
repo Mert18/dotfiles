@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="xxf"
+ZSH_THEME="headline"
 # fino
 
 # Set list of themes to pick from when loading at random
@@ -104,7 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_251
-export M2_HOME=/opt/maven
-export GRADLE_HOME=/opt/gradle/gradle-4.0.1
-export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$GRADLE_HOME/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/jdk-24.0.2
+export M2_HOME=/opt/apache-maven-3.9.11
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
